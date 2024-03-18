@@ -17,3 +17,5 @@ and Microsoft.EntityFrameworkCore.Tools v5.0.1
 Development in
 vs2019
 and SqlServer 2008 R2
+
+!!!!!!  need to use  seerver v 2012 or above...  Skip in IQueryableExtension doesnt work with data in 2008
