@@ -15,9 +15,8 @@ namespace MoviesAPI.Helpers
 
             if (httpContext == null)
             {
-                Console.WriteLine("HttpContext is null in InsertParametersPaginationInHeader");
-                return;
-                // throw new ArgumentException(nameof(httpContext));
+
+                throw new ArgumentException(nameof(httpContext));
             }
 
             double count = await queryable.CountAsync();
