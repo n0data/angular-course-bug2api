@@ -33,18 +33,12 @@ namespace MoviesAPI.Controllers
         public async Task<ActionResult<List<ActorDTO>>> Get([FromQuery] PaginationDTO paginationDTO)
         {
 
+
+
             var queryable = context.Actors.AsQueryable();
             await HttpContext.InsertParametersPaginationInHeader(queryable);
-            var paginatedActors = queryable.OrderBy(x => x.Name).Paginate(paginationDTO);
-            var actors = await paginatedActors.ToListAsync();
+            var actors = await queryable.OrderBy(x => x.Name).Paginate(paginationDTO).ToListAsync();
             return mapper.Map<List<ActorDTO>>(actors);
-
-
-
-            //var queryable = context.Actors.AsQueryable();
-            //await HttpContext.InsertParametersPaginationInHeader(queryable);
-            //var actors = await queryable.OrderBy(x => x.Name).Paginate(paginationDTO).ToListAsync();
-            //return mapper.Map<List<ActorDTO>>(actors);
 
             // .Paginate(paginationDTO)
 
